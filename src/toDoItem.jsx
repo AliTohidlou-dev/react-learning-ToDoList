@@ -36,7 +36,7 @@ function ToDoItem() {
             ) : (
               ""
             )}
-            {item.status == null || item.status == "accept" ? (
+            {item.status == "accept" ? (
               <i className="fa fa-close" onClick={() => reject(item.id)}></i>
             ) : (
               ""

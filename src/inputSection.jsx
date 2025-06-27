@@ -5,6 +5,7 @@ function InputSection() {
   const context = useContext(ItemContext);
   const enter = (e) => {
     if (e.key == "Enter") {
+      e.preventDefault(); 
       addList();
     }
   };
@@ -23,18 +24,22 @@ function InputSection() {
     }
     console.log(context.items);
   };
+  const handleSubmit=(e)=>{
+    e.preventDefault(); 
+    addList()
+  }
   return (
-    <div className="input-section">
+    <form className="input-section">
       <input
         type="text"
         placeholder="write here..."
         className="toDoInput"
         onKeyDown={enter}
       />
-      <button type="button" onClick={addList}>
+      <button type="submit" onClick={handleSubmit}>
         Push
       </button>
-    </div>
+    </form>
   );
 }
 
